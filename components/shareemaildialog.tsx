@@ -82,18 +82,17 @@ const ShareEmailDialog: React.FC<EmailDialogProps> = ({
   const { mutate: mutateSharedAccessTokens } = useSharedUrls();
   const { data: currentUser, mutate } = useCurrentUser();
 
-  const handleAddCredit =async () => {
-      console.log(currentUser);
-      const user = await prismadb.user.update({
-        where: {
-          email: currentUser.email || '',
-        },
-        data: {
-          currentBalance: 10000,
-        },
-      });
-  }
-
+  const handleAddCredit = async () => {
+    console.log(currentUser);
+    const user = await prismadb.user.update({
+      where: {
+        email: currentUser.email || "",
+      },
+      data: {
+        currentBalance: 10000,
+      },
+    });
+  };
 
   const handleSubmit = async () => {
     setIsJwtTokenSuccess(null);
@@ -114,7 +113,7 @@ const ShareEmailDialog: React.FC<EmailDialogProps> = ({
     const decoded = verifyJwtAccessToken(accessToken!!);
 
     if (decoded && decoded.movieId === shareMovieId) {
-      setJwtToken(`http://localhost:3000/watch/${accessToken}`);
+      setJwtToken(`https://sharestreamify.vercel.app/watch/${accessToken}`);
       setIsJwtTokenSuccess(true);
     } else {
       setIsJwtTokenSuccess(false);
@@ -140,9 +139,7 @@ const ShareEmailDialog: React.FC<EmailDialogProps> = ({
         setUserMessage("The shared URL is generated. Share and enjoy!");
         console.log(response.data);
         return;
-      } 
-      
-      else if (response.status == 204) {
+      } else if (response.status == 204) {
         setIsMovieAlreadyShared(true);
         setUserMessage(
           `This Movie is already shared With ${email} and No Money Deducted`
@@ -174,7 +171,6 @@ const ShareEmailDialog: React.FC<EmailDialogProps> = ({
             >
               Back
             </button>
-           
           </div>
         </div>
       )}
