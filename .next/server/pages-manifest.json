@@ -3,15 +3,5 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js",
-  "/auth": "pages/auth.js",
-  "/userprofiles": "pages/userprofiles.js",
-  "/api/current": "pages/api/current.js",
-  "/api/sharedurls": "pages/api/sharedurls.js",
-  "/api/movies": "pages/api/movies.js",
-  "/api/favorites": "pages/api/favorites.js",
-  "/api/shareurl": "pages/api/shareurl.js",
-  "/watch/[accessToken]": "pages/watch/[accessToken].js",
-  "/api/random": "pages/api/random.js",
-  "/api/movies/[accessToken]": "pages/api/movies/[accessToken].js"
+  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js"
 }
